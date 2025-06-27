@@ -67,21 +67,84 @@ const MainHeader = () => {
         { 
           name: 'Vocational Courses',
           submenu: [
-            { name: 'Electronics & Hardware', href: '/courses/electronics' },
-            { name: 'Multi Skill Technician (Electrical)', href: '/courses/electrical' },
-            { name: 'Solar and LED Technician', href: '/courses/solar' },
-            { name: 'Mechanical Filter', href: '/courses/mechanical' },
-            { name: 'Field Engineer RACW', href: '/courses/racw' },
-            { name: 'Field Technician AC', href: '/courses/ac' },
-            { name: 'Apparel & Home Furnishing', href: '/courses/apparel' },
-            { name: 'Beauty & Wellness', href: '/courses/beauty' },
-            { name: 'BFSI', href: '/courses/bfsi' },
-            { name: 'Green Jobs', href: '/courses/green' },
-            { name: 'Construction', href: '/courses/construction' },
-            { name: 'IT-ITES', href: '/courses/it' },
-            { name: 'Management & Entrepreneurship', href: '/courses/management' },
-            { name: 'Retail', href: '/courses/retail' },
-            { name: 'Tourism & Hospitality', href: '/courses/tourism' }
+            { 
+              name: 'Electronics & Hardware',
+              submenu: [
+                { name: 'Electronics & Hardware', href: '/courses/electronics' },
+                { name: 'Multi Skill Technician (Electrical)', href: '/courses/electrical' },
+                { name: 'Solar and LED Technician', href: '/courses/solar' },
+                { name: 'Mechanical Filter', href: '/courses/mechanical' },
+                { name: 'Field Engineer RACW', href: '/courses/racw' },
+                { name: 'Field Technician AC', href: '/courses/ac' }
+              ]
+            },
+            {
+              name: 'Apparel, Made-ups & Home Furnishing',
+              submenu: [
+                { name: 'Apparel, Made-ups & Home Furnishing', href: '/courses/apparel' },
+                { name: 'Assistant Fashion Designer', href: '/courses/fashion-designer' }
+              ]
+            },
+            {
+              name: 'Beauty & Wellness',
+              submenu: [
+                { name: 'Beauty & Wellness', href: '/courses/beauty' },
+                { name: 'Make Up Trainer', href: '/courses/makeup-trainer' },
+                { name: 'Yoga Trainer', href: '/courses/yoga-trainer' }
+              ]
+            },
+            {
+              name: 'BFSI',
+              submenu: [
+                { name: 'BFSI', href: '/courses/bfsi' },
+                { name: 'Accounts Executive (Statutory Compliance)', href: '/courses/accounts-executive' },
+                { name: 'Goods and Services Tax (GST) Accounts Assistant', href: '/courses/gst-assistant' }
+              ]
+            },
+            {
+              name: 'Green Jobs',
+              submenu: [
+                { name: 'Green Jobs', href: '/courses/green' },
+                { name: 'Solar PV Business Development Executive', href: '/courses/solar-pv-executive' }
+              ]
+            },
+            {
+              name: 'Construction',
+              submenu: [
+                { name: 'Construction', href: '/courses/construction' },
+                { name: 'Supervisor Electrical Works', href: '/courses/electrical-supervisor' }
+              ]
+            },
+            {
+              name: 'IT-ITES',
+              submenu: [
+                { name: 'IT-ITES', href: '/courses/it' },
+                { name: 'Hardware Engineer', href: '/courses/hardware-engineer' },
+                { name: 'Software Engineer', href: '/courses/software-engineer' },
+                { name: 'Web Developer', href: '/courses/web-developer' }
+              ]
+            },
+            {
+              name: 'Management & Entrepreneurship',
+              submenu: [
+                { name: 'Management & Entrepreneurship', href: '/courses/management' },
+                { name: 'Office Assistant', href: '/courses/office-assistant' }
+              ]
+            },
+            {
+              name: 'Retail',
+              submenu: [
+                { name: 'Retail', href: '/courses/retail' },
+                { name: 'Retail Store Manager', href: '/courses/retail-manager' }
+              ]
+            },
+            {
+              name: 'Tourism & Hospitality',
+              submenu: [
+                { name: 'Tourism & Hospitality', href: '/courses/tourism' },
+                { name: 'Front Office Manager', href: '/courses/front-office-manager' }
+              ]
+            }
           ]
         },
         {
@@ -126,7 +189,7 @@ const MainHeader = () => {
     { name: 'Placement', href: '/placement' },
     { name: 'SKILLS', href: '/skills' },
     { name: 'Blog', href: '/blog' }
-  ];
+  ] as any[];
 
   const actionButtons = [
     { name: 'Download Brochure', icon: Download, href: '/brochure', variant: 'outline' },
@@ -215,7 +278,7 @@ const MainHeader = () => {
                 {/* Dropdown Menu */}
                 {item.submenu && (
                   <div
-                    className={`absolute top-full left-0 mt-1 w-44 lg:w-52 bg-white rounded-lg shadow-2xl border border-gray-200 py-1 z-50 transition-all duration-200 origin-top opacity-0 scale-95 pointer-events-none ${
+                    className={`absolute top-full left-0 mt-1 w-56 lg:w-64 bg-white rounded-lg shadow-2xl border border-gray-200 py-1 z-50 transition-all duration-200 origin-top opacity-0 scale-95 pointer-events-none ${
                       openDropdown === item.name ? 'opacity-100 scale-100 pointer-events-auto' : ''
                     }`}
                     role="menu"
@@ -225,27 +288,49 @@ const MainHeader = () => {
                       <div key={subitem.name} className="relative group">
                         {subitem.submenu ? (
                           <>
-                            <div className="flex items-center justify-between px-2 py-1 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer group-focus-within:bg-blue-50 group-focus-within:text-blue-600">
+                            <div className="flex items-center justify-between px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer group-focus-within:bg-blue-50 group-focus-within:text-blue-600">
                               {subitem.name}
-                              <ChevronDown className="ml-0.5 h-3 w-3 rotate-270" />
+                              <ChevronDown className="ml-1 h-3 w-3 rotate-270" />
                             </div>
-                            <div className="absolute left-full top-0 ml-1 w-44 lg:w-52 bg-white rounded-lg shadow-2xl border border-gray-200 py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50">
+                            <div className="absolute left-full top-0 ml-1 w-56 lg:w-64 bg-white rounded-lg shadow-2xl border border-gray-200 py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50">
                               {subitem.submenu.map((subsubitem) => (
-                                <Link
-                                  key={subsubitem.name}
-                                  to={subsubitem.href}
-                                  className="block px-2 py-1 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded"
-                                  tabIndex={0}
-                                >
-                                  {subsubitem.name}
-                                </Link>
+                                <div key={subsubitem.name} className="relative group/sub">
+                                  {subsubitem.submenu ? (
+                                    <>
+                                      <div className="flex items-center justify-between px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer group-focus-within:bg-blue-50 group-focus-within:text-blue-600">
+                                        {subsubitem.name}
+                                        <ChevronDown className="ml-1 h-3 w-3 rotate-270" />
+                                      </div>
+                                      <div className="absolute left-full top-0 ml-1 w-56 lg:w-64 bg-white rounded-lg shadow-2xl border border-gray-200 py-1 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50">
+                                        {subsubitem.submenu.map((subsubsubitem) => (
+                                          <Link
+                                            key={subsubsubitem.name}
+                                            to={subsubsubitem.href}
+                                            className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded"
+                                            tabIndex={0}
+                                          >
+                                            {subsubsubitem.name}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </>
+                                  ) : (
+                                    <Link
+                                      to={subsubitem.href}
+                                      className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded"
+                                      tabIndex={0}
+                                    >
+                                      {subsubitem.name}
+                                    </Link>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           </>
                         ) : (
                           <Link
                             to={subitem.href}
-                            className="block px-2 py-1 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded"
+                            className="block px-3 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded"
                             tabIndex={0}
                           >
                             {subitem.name}
@@ -331,14 +416,36 @@ const MainHeader = () => {
                               </div>
                               <div className="ml-4 border-l border-blue-50 pl-2">
                                 {subitem.submenu.map((subsubitem) => (
-                                  <Link
-                                    key={subsubitem.name}
-                                    to={subsubitem.href}
-                                    className="block px-2 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                  >
-                                    {subsubitem.name}
-                                  </Link>
+                                  <div key={subsubitem.name}>
+                                    {subsubitem.submenu ? (
+                                      <>
+                                        <div className="flex items-center justify-between px-2 py-1 text-sm font-medium text-gray-600">
+                                          {subsubitem.name}
+                                          <ChevronDown className="h-3 w-3 ml-1" />
+                                        </div>
+                                        <div className="ml-4 border-l border-blue-50 pl-2">
+                                          {subsubitem.submenu.map((subsubsubitem) => (
+                                            <Link
+                                              key={subsubsubitem.name}
+                                              to={subsubsubitem.href}
+                                              className="block px-2 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                                              onClick={() => setIsMobileMenuOpen(false)}
+                                            >
+                                              {subsubsubitem.name}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <Link
+                                        to={subsubitem.href}
+                                        className="block px-2 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                      >
+                                        {subsubitem.name}
+                                      </Link>
+                                    )}
+                                  </div>
                                 ))}
                               </div>
                             </>

@@ -14,6 +14,7 @@ import Placements from './pages/about/Placements';
 import Events from './pages/about/Events';
 import AboutContact from './pages/about/Contact';
 import Courses from './pages/Courses';
+import CourseDetail from './pages/CourseDetail';
 import Placement from './pages/Placement';
 import Resources from './pages/Resources';
 import Trainers from './pages/Trainers';
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="contact" element={<AboutContact />} />
           </Route>
           <Route path="courses" element={<Courses />} />
+          <Route path="courses/:courseId" element={<CourseDetail />} />
           <Route path="placement" element={<Placement />} />
           <Route path="resources" element={<Resources />} />
           <Route path="trainers" element={<Trainers />} />
